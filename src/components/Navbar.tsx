@@ -19,8 +19,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center py-4">
         {/* Logo */}
         <div className="flex items-center space-x-2">
+        <Link  href="/">
           {/* <img src="/logo.png" alt="Logo" className="w-8 h-8" /> */}
-          <span className="font-bold text-lg">채널관</span>
+          <span className="font-bold text-lg">logo</span>
+          </Link>
         </div>
 
         {/* Menu Items */}
