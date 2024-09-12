@@ -4,7 +4,9 @@ type Props = {}
 
 const Apply = (props: Props) => {
   return (
-    <div className='min-h-screen'>Apply page</div>
+    <div className='min-h-[calc(100vh-28rem)]'>
+        Apply page
+        </div>
   )
 }
 
