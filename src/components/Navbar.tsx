@@ -2,9 +2,13 @@
 "use client"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'; // Use this instead of useRouter
+import { useState } from 'react';
+import { DiHtml5Connectivity } from 'react-icons/di';
+import { FaAngleDoubleDown } from 'react-icons/fa';
 
 const Navbar = () => {
   const pathname = usePathname(); // This replaces the useRouter functionality
+  const [dropdown, setDropdown]=useState(false)
 
   const navItems = [
     { name: 'SERVICE INTRODUCTION', href: '/service-introduction' },
@@ -15,18 +19,18 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white border-b shadow-md text-black">
-      <div className="container mx-auto px-4 flex justify-between items-center py-4">
+    <nav className="mb-0 shadow-md text-black w-screen">
+      <div className=" px-10 flex justify-between items-center py-4 sticky top-0 bg-white w-full z-50">
         {/* Logo */}
         <div className="flex items-center space-x-2">
         <Link  href="/">
           {/* <img src="/logo.png" alt="Logo" className="w-8 h-8" /> */}
-          <span className="font-bold text-lg">logo</span>
+          <span className="font-bold text-lg"><DiHtml5Connectivity className='text-4xl text-blue-400  font-bold' /></span>
           </Link>
         </div>
 
         {/* Menu Items */}
-        <div className="space-x-6 text-sm">
+        <div className="space-x-6 text-sm hidden md:flex">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href}>
               <span
@@ -39,9 +43,13 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
+        
 
         {/* User Actions */}
-        <div className="space-x-4">
+        <div className="space-x-4 flex items-center">
+        <FaAngleDoubleDown 
+        onClick={() => setDropdown(!dropdown)}
+        className='hover:cursor-pointer hover:text-red-500 md:hidden'/>
           <Link href="/login">
             <span className="hover:text-gray-600">LOG IN</span>
           </Link>
@@ -50,6 +58,22 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
+      {dropdown && 
+      <div className="flex flex-col w-full bg-fuchsia-400 absolute text-sm p-2 px-4 shadow-md ">
+          {navItems.map((item) => (
+            <Link key={item.name} href={item.href}>
+              <span 
+              onClick={()=> setDropdown(false)}
+                className={`${
+                  pathname === item.href ? 'text-red-500 font-semibold' : 'hover:text-gray-600'
+                }`}
+              >
+                {item.name}
+              </span>
+            </Link>
+          ))}
+        </div>
+        }
 
       {/* Announcement Bar */}
       <div className="bg-gray-800 text-center py-2 text-sm text-white">
