@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav className="mb-0 shadow-md text-black w-screen">
-      <div className=" px-10 flex justify-between items-center py-4 sticky top-0 bg-white w-full z-50">
+      <div className=" px-10 flex justify-between items-center shadow-md py-4 sticky top-0 bg-white w-full z-50">
         {/* Logo */}
         <div className="flex items-center space-x-2">
         <Link  href="/">
@@ -59,12 +59,12 @@ const Navbar = () => {
         </div>
       </div>
       {dropdown && 
-      <div className="flex flex-col w-full bg-fuchsia-400 absolute text-sm p-2 px-4 shadow-md ">
+      <div className="flex flex-col w-full bg-white absolute text-sm p-2 shadow-md ">
           {navItems.map((item) => (
-            <Link key={item.name} href={item.href}>
+            <Link key={item.name} href={item.href} className='hover:bg-slate-200 px-4 p-2 rounded-md'>
               <span 
               onClick={()=> setDropdown(false)}
-                className={`${
+                className={` ${
                   pathname === item.href ? 'text-red-500 font-semibold' : 'hover:text-gray-600'
                 }`}
               >

@@ -74,7 +74,7 @@ export default function Home() {
               <p className="text-gray-400">Your KakaoTalk channel is already great.
                 It&apos;s just that people don&apos;t know about it. Become famous!
                 Increase your KakaoTalk channel friends through marketing.</p>
-              {/* <p>can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`. can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.</p> */}
+              
             </div>
           </div>
         </div>
@@ -212,7 +212,7 @@ export default function Home() {
 
 
       <section className=" py-10">
-        <h1 className="flex justify-center text-xl font-bold text-black">While you're struggling, someone else is experiencing the effects.</h1>
+        <h1 className="flex justify-center text-xl font-bold text-black">While you&apos;re struggling, someone else is experiencing the effects.</h1>
         
         <div className="flex justify-center items-center md:px-20">
           <table className="table-auto mt-2  overflow-scroll">
